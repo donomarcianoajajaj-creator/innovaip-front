@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import logoImg from '../assets/logo.png'
 
 export default function Navbar() {
   const { pathname } = useLocation()
@@ -9,9 +10,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#1B3A6B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
-            🏔️
-          </div>
+          <img src={logoImg} alt="Logo" style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover' }} />
           <div style={{ lineHeight: '1.2' }}>
             <p style={{ fontWeight: 700, color: '#1B3A6B', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>Igualdad Para Todos</p>
             <p style={{ fontSize: '10px', color: '#6b7280', margin: 0 }}>Teatro Voces de los Andes</p>

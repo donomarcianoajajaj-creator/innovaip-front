@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import ninosImg from '../assets/ninos-andinos.png'
+import escudoImg from '../assets/escudo.png'
+import logoImg from '../assets/logo.png'
 
 function HeroSection() {
   return (
     <section style={{ background: 'linear-gradient(180deg, #C5E8F7 0%, #A8D8F0 100%)', width: '100%', textAlign: 'center' }}>
-      <div style={{ width: '100%', padding: '48px 20px 0' }}>
+      {/* Texto encima */}
+      <div style={{ width: '100%', padding: '48px 20px 32px' }}>
         <h1 className="text-4xl sm:text-5xl lg:text-7xl" style={{ fontWeight: 900, color: '#1B3A6B', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>
           Voces de los Andes
         </h1>
@@ -22,23 +26,26 @@ function HeroSection() {
             background: '#E8821A', color: 'white',
             padding: '14px 32px', borderRadius: '999px',
             fontSize: '16px', fontWeight: 700,
-            textDecoration: 'none', marginBottom: '40px',
+            textDecoration: 'none',
             boxShadow: '0 4px 12px rgba(232,130,26,0.4)',
           }}
         >
           🤝 Compartir mi historia
         </Link>
+      </div>
 
+      {/* Imagen completa debajo, título se sobrepone con gradiente */}
+      <div style={{ position: 'relative', width: '100%' }}>
+        <img
+          src={ninosImg}
+          alt="Niños andinos"
+          style={{ width: '100%', height: '420px', objectFit: 'cover', objectPosition: 'center 75%', display: 'block' }}
+        />
+        {/* Gradiente superior para fusionar con el fondo celeste */}
         <div style={{
-          width: '100%', height: '280px',
-          background: 'rgba(255,255,255,0.4)',
-          border: '2px dashed rgba(27,58,107,0.3)',
-          borderRadius: '24px 24px 0 0',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: 'rgba(27,58,107,0.4)', fontSize: '16px', fontWeight: 500,
-        }}>
-          [ Insertar imagen — ilustración de niños andinos ]
-        </div>
+          position: 'absolute', top: 0, left: 0, right: 0, height: '80px',
+          background: 'linear-gradient(180deg, #A8D8F0 0%, transparent 100%)',
+        }} />
       </div>
     </section>
   )
@@ -79,16 +86,7 @@ function PrivacidadSection() {
   return (
     <section style={{ background: '#EBF8FF', padding: '56px 20px', width: '100%' }}>
       <div className="flex flex-col sm:flex-row" style={{ alignItems: 'center', gap: '32px', maxWidth: '900px', margin: '0 auto' }}>
-        <div style={{
-          width: '140px', height: '140px', flexShrink: 0,
-          background: 'rgba(255,255,255,0.6)',
-          border: '2px dashed rgba(27,58,107,0.3)',
-          borderRadius: '16px',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          color: 'rgba(27,58,107,0.4)', fontSize: '12px', textAlign: 'center', padding: '12px',
-        }}>
-          [ Insertar imagen — escudo ]
-        </div>
+        <img src={escudoImg} alt="Privacidad" style={{ width: '140px', height: '140px', objectFit: 'contain', flexShrink: 0 }} />
         <div className="text-center sm:text-left">
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#1B3A6B', marginBottom: '12px' }}>Tu privacidad es importante</h2>
           <p style={{ color: '#4b5563', lineHeight: 1.7, marginBottom: '12px' }}>
@@ -108,7 +106,7 @@ function Footer() {
       <div style={{ background: '#1B3A6B', color: 'white', padding: '48px 20px' }}>
         <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: '32px', maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', flexShrink: 0 }}>🏔️</div>
+            <img src={logoImg} alt="Logo" style={{ width: '48px', height: '48px', objectFit: 'contain', flexShrink: 0, borderRadius: '50%' }} />
             <div>
               <p style={{ fontWeight: 700, fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', margin: '0 0 4px' }}>Igualdad Para Todos</p>
               <p style={{ fontSize: '12px', color: '#93c5fd', marginBottom: '8px' }}>Teatro Voces de los Andes</p>
