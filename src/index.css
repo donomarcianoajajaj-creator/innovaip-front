@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B3A6B;
+  --color-navy-light: #2D5499;
+  --color-orange: #E8821A;
+  --color-orange-hover: #CF7015;
+  --color-sky-hero: #C5E8F7;
+  --color-blue-soft: #EBF8FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  color: #1B3A6B;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
