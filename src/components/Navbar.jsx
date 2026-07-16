@@ -4,33 +4,45 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="w-full max-w-screen-xl mx-auto px-8 py-3 flex items-center justify-between">
+    <nav style={{ background: 'white', boxShadow: '0 1px 4px rgba(0,0,0,0.08)', position: 'sticky', top: 0, zIndex: 50 }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '12px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 no-underline">
-          <div className="w-12 h-12 rounded-full bg-[#1B3A6B] flex items-center justify-center text-white text-xl font-bold">
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', flexShrink: 0 }}>
+          <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#1B3A6B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>
             🏔️
           </div>
-          <div className="leading-tight">
-            <p className="font-bold text-[#1B3A6B] text-sm uppercase tracking-wide">Igualdad Para Todos</p>
-            <p className="text-xs text-gray-500">Teatro Voces de los Andes</p>
+          <div style={{ lineHeight: '1.2' }}>
+            <p style={{ fontWeight: 700, color: '#1B3A6B', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', margin: 0 }}>Igualdad Para Todos</p>
+            <p style={{ fontSize: '10px', color: '#6b7280', margin: 0 }}>Teatro Voces de los Andes</p>
           </div>
         </Link>
 
-        {/* Links */}
-        <div className="flex items-center gap-2">
+        {/* Links — ocultos en móvil pequeño */}
+        <div className="hidden sm:flex" style={{ gap: '4px' }}>
           <Link
             to="/"
-            className={`px-4 py-2 rounded-full text-sm font-medium no-underline transition-colors
-              ${pathname === '/' ? 'bg-blue-100 text-[#1B3A6B]' : 'text-gray-600 hover:text-[#1B3A6B]'}`}
+            style={{
+              padding: '8px 16px',
+              borderRadius: '999px',
+              fontSize: '14px',
+              fontWeight: 500,
+              textDecoration: 'none',
+              background: pathname === '/' ? '#EBF8FF' : 'transparent',
+              color: '#1B3A6B',
+            }}
           >
             Inicio
           </Link>
           <Link
             to="/compartir"
-            className={`px-4 py-2 text-sm font-medium no-underline transition-colors
-              ${pathname === '/compartir' ? 'text-[#1B3A6B] font-semibold' : 'text-gray-600 hover:text-[#1B3A6B]'}`}
+            style={{
+              padding: '8px 16px',
+              fontSize: '14px',
+              fontWeight: pathname === '/compartir' ? 600 : 400,
+              textDecoration: 'none',
+              color: '#1B3A6B',
+            }}
           >
             Compartir Historia
           </Link>
@@ -39,10 +51,17 @@ export default function Navbar() {
         {/* Iniciar sesión */}
         <Link
           to="/moderador/login"
-          className="flex items-center gap-2 bg-[#1B3A6B] text-white px-5 py-2 rounded-full text-sm font-medium no-underline hover:bg-[#2D5499] transition-colors"
+          style={{
+            display: 'flex', alignItems: 'center', gap: '6px',
+            background: '#1B3A6B', color: 'white',
+            padding: '8px 16px', borderRadius: '999px',
+            fontSize: '13px', fontWeight: 600,
+            textDecoration: 'none', flexShrink: 0,
+            whiteSpace: 'nowrap',
+          }}
         >
-          <span>👤</span>
-          Iniciar sesión
+          👤 <span className="hidden sm:inline">Iniciar sesión</span>
+          <span className="sm:hidden">Entrar</span>
         </Link>
 
       </div>
